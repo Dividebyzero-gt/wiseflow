@@ -82,10 +82,10 @@ wiseflow 폴더（프로젝트 루트 디렉토리）에서 env_sample을 기반
 
 버전 4.x에서는 사용자가 .env에서 PocketBase 계정 인증 정보를 제공할 필요가 없으며, PocketBase 버전도 제한되지 않습니다. 또한 Secondary Model 설정도 일시적으로 제거되었습니다. 따라서 실제로는 4개의 매개변수만으로 설정을 완료할 수 있습니다：
 
-- LLM_API_KEY="" # LLM 서비스 키（OpenAI 형식 API를 제공하는 모델 서비스 제공업체라면 어느 것이든 가능, 로컬에서 배포된 ollama를 사용하는 경우 설정 불필요）
-- LLM_API_BASE="" # LLM 서비스 기본 URL (있는 경우. OpenAI 사용자의 경우 비워두세요)
-- PRIMARY_MODEL=Qwen/Qwen3-14B # 추천 Qwen3-14B 또는 동일 수준의 사고 모델
-- VL_MODEL="Pro/Qwen/Qwen2.5-VL-7B-Instruct" # 시각 모델, 선택사항이지만 권장. 필요한 페이지 이미지 분석에 사용（프로그램은 컨텍스트에 따라 분석이 필요한지 여부를 판단하며, 모든 이미지를 추출하지는 않음）, 최소 Qwen2.5-VL-7B-Instruct로 충분합니다
+- LLM_API_KEY="" # LLM 서비스 키（OpenAI 형식 API를 제공하는 모델 서비스 제공업체라면 어느 것이든 가능, AiHubMix 서비스 사용 권장, wiseflow 사용자는 OpenAI 모델에서 10% 할인 혜택 [여기서 신청](https://aihubmix.com?aff=Gp54)）
+- LLM_API_BASE=https://aihubmix.com/v1
+- PRIMARY_MODEL=o3-mini # 추천 o3-mini 또는 더 높은 수준의 사고 모델
+- VL_MODEL=gpt-4o-mini # 추천 gpt-4o-mini 또는 더 높은 수준의 시각 모델
 
 ### 🚀 시작해 보세요！
 
@@ -185,34 +185,15 @@ WiseFlow는 LLM 네이티브 애플리케이션입니다. 프로그램에 안정
 
 🌟 **WiseFlow는 모델 서비스 제공업체를 제한하지 않습니다. OpenAI SDK와 호환되는 서비스라면 로컬에서 배포된 ollama, Xinference, 기타 서비스도 포함하여 사용할 수 있습니다**
 
-##### 추천 1：SiliconFlow의 MaaS 서비스 사용
-
-SiliconFlow는 대부분의 주류 오픈 소스 모델에 대한 온라인 MaaS 서비스를 제공합니다. 그들의 가속 추론 기술로 인해 서비스는 속도와 가격 모두에서 우위를 가집니다. SiliconFlow의 서비스를 사용할 때 .env 설정은 다음과 같습니다：
+권장：AiHubMix의 프록시 OpenAI 모델 서비스를 사용하세요. 현재 WiseFlow는 AiHubMix와 협력하고 있으며, WiseFlow 사용자는 모든 OpenAI 모델에서 10% 할인 혜택을 받을 수 있습니다 [여기서 신청](https://aihubmix.com?aff=Gp54)
 
 ```
 LLM_API_KEY=Your_API_KEY
-LLM_API_BASE="" # LLM 서비스 기본 URL (있는 경우. OpenAI 사용자의 경우 비워두세요)
-PRIMARY_MODEL=Qwen/Qwen3-14B # 추천 Qwen3-14B 또는 동일 수준의 사고 모델
-VL_MODEL="Pro/Qwen/Qwen2.5-VL-7B-Instruct"
+LLM_API_BASE=https://aihubmix.com/v1
+PRIMARY_MODEL=o3-mini
+VL_MODEL=gpt-4o-mini
 CONCURRENT_NUMBER=8
 ```
-
-😄 원하신다면 제 [SiliconFlow 초대 링크](https://cloud.siliconflow.com/i/WNLYbBpi)를 사용해 주세요. 그러면 더 많은 토큰 보상을 받을 수 있습니다 🌹
-
-##### 추천 2：AiHubMix의 프록시된 해외 클로즈드 소스 상용 모델 서비스（OpenAI, Claude, Gemini 등）사용
-
-정보 소스가 주로 비중국어 페이지이고 추출된 정보가 중국어일 필요가 없는 경우, OpenAI, Claude, Gemini 등의 해외 클로즈드 소스 상용 모델이 더 권장됩니다. 중국 네트워크 환경에서의 직접 연결, 편리한 Alipay 결제, 계정 차단 위험 제거를 지원하는 서드파티 프록시 **AiHubMix**를 시도해 볼 수 있습니다.
-AiHubMix의 모델을 사용할 때 .env 설정은 다음과 같습니다：
-
-```
-LLM_API_KEY=Your_API_KEY
-LLM_API_BASE="https://aihubmix.com/v1" # 자세한 내용은 https://doc.aihubmix.com/ 참조
-PRIMARY_MODEL="gpt-4o-mini"
-VL_MODEL="gpt-4o"
-CONCURRENT_NUMBER=8
-```
-
-😄 [AiHubMix 초대 링크](https://aihubmix.com?aff=Gp54)를 사용하여 등록해 주세요 🌹
 
 ##### 로컬 LLM 서비스 배포
 
@@ -224,14 +205,6 @@ LLM_API_BASE='http://127.0.0.1:9997' # ollama의 경우 'http://127.0.0.1:11434/
 PRIMARY_MODEL=시작된 모델 ID
 VL_MODEL=시작된 모델 ID
 CONCURRENT_NUMBER=1 # 실제 하드웨어 리소스에 따라 결정
-```
-
-#### 3. JINA_API_KEY 설정（검색 엔진 서비스용）
-
-https://jina.ai/ 에서 획득, 현재는 등록 없이 이용 가능합니다.（고동시성 또는 상업적 사용의 경우 충전하세요）
-
-```
-JINA_API_KEY=Your_API_KEY
 ```
 
 #### 4. 기타 선택적 설정

@@ -82,10 +82,10 @@ wiseflowフォルダ（プロジェクトルートディレクトリ）で、env
 
 バージョン4.xでは、ユーザーが.envでPocketBaseのアカウント認証情報を提供する必要はなく、PocketBaseのバージョンも制限されていません。また、Secondary Modelの設定も一時的に削除されています。したがって、実際には4つのパラメータだけで設定を完了できます：
 
-- LLM_API_KEY="" # LLMサービスのキー（OpenAI形式のAPIを提供するモデルサービスプロバイダーであればどれでも可、ローカルでデプロイされたollamaを使用する場合は設定不要）
-- LLM_API_BASE="" # LLM サービスのベースURL (ある場合。OpenAIユーザーの場合は空白のままにしてください)
-- PRIMARY_MODEL=Qwen/Qwen3-14B # 推奨 Qwen3-14B または同等の思考モデル
-- VL_MODEL="Pro/Qwen/Qwen2.5-VL-7B-Instruct" # 視覚モデル、オプションだが推奨。必要なページ画像の分析に使用（プログラムはコンテキストに基づいて分析が必要かどうかを判断し、すべての画像を抽出するわけではありません）、最低Qwen2.5-VL-7B-Instructで十分です
+- LLM_API_KEY="" # LLMサービスのキー（OpenAI形式のAPIを提供するモデルサービスプロバイダーであればどれでも可、AiHubMixサービスの利用を推奨、wiseflowユーザーはOpenAIモデルで10%割引 [こちらで申請](https://aihubmix.com?aff=Gp54)）
+- LLM_API_BASE=https://aihubmix.com/v1
+- PRIMARY_MODEL=o3-mini # 推奨 o3-mini またはより高レベルの思考モデル
+- VL_MODEL=gpt-4o-mini # 推奨 gpt-4o-mini またはより高レベルの視覚モデル
 
 ### 🚀 さあ始めましょう！
 
@@ -185,34 +185,15 @@ WiseFlowはLLMネイティブアプリケーションです。プログラムに
 
 🌟 **WiseFlowはモデルサービスプロバイダーを制限しません。OpenAI SDKと互換性のあるサービスであれば、ローカルでデプロイされたollama、Xinference、その他のサービスも含めて使用できます**
 
-##### 推奨1：SiliconFlowのMaaSサービスを使用
-
-SiliconFlowは、ほとんどの主流オープンソースモデルのオンラインMaaSサービスを提供しています。彼らの加速推論技術により、サービスは速度と価格の両方で優位性があります。SiliconFlowのサービスを使用する場合、.envの設定は以下のようになります：
+推奨：AiHubMixのプロキシOpenAIモデルサービスを使用。現在、WiseFlowはAiHubMixと協力しており、WiseFlowユーザーは全OpenAIモデルで10%割引を享受できます [こちらで申請](https://aihubmix.com?aff=Gp54)
 
 ```
 LLM_API_KEY=Your_API_KEY
-LLM_API_BASE="" # LLM サービスのベースURL (ある場合。OpenAIユーザーの場合は空白のままにしてください)
-PRIMARY_MODEL=Qwen/Qwen3-14B # 推奨 Qwen3-14B または同等の思考モデル
-VL_MODEL="Pro/Qwen/Qwen2.5-VL-7B-Instruct"
+LLM_API_BASE=https://aihubmix.com/v1
+PRIMARY_MODEL=o3-mini
+VL_MODEL=gpt-4o-mini
 CONCURRENT_NUMBER=8
 ```
-
-😄 よろしければ、私の[SiliconFlow招待リンク](https://cloud.siliconflow.com/i/WNLYbBpi)を使用してください。そうすれば、より多くのトークン報酬を得ることができます 🌹
-
-##### 推奨2：AiHubMixのプロキシされた海外のクローズドソース商用モデルサービス（OpenAI、Claude、Geminiなど）を使用
-
-情報源が主に非中国語のページで、抽出された情報が中国語である必要がない場合は、OpenAI、Claude、Geminiなどの海外のクローズドソース商用モデルがより推奨されます。中国のネットワーク環境での直接接続、便利なAlipay支払い、アカウントブロックリスクの排除をサポートするサードパーティプロキシ**AiHubMix**を試すことができます。
-AiHubMixのモデルを使用する場合、.envの設定は以下のようになります：
-
-```
-LLM_API_KEY=Your_API_KEY
-LLM_API_BASE="https://aihubmix.com/v1" # 詳細は https://doc.aihubmix.com/ を参照
-PRIMARY_MODEL="gpt-4o-mini"
-VL_MODEL="gpt-4o"
-CONCURRENT_NUMBER=8
-```
-
-😄 [AiHubMix招待リンク](https://aihubmix.com?aff=Gp54)を使用して登録してください 🌹
 
 ##### ローカルLLMサービスのデプロイ
 
@@ -226,13 +207,6 @@ VL_MODEL=起動したモデルID
 CONCURRENT_NUMBER=1 # 実際のハードウェアリソースに基づいて決定
 ```
 
-#### 3. JINA_API_KEYの設定（検索エンジンサービス用）
-
-https://jina.ai/ で取得、現在は登録なしで利用可能です。（高同時実行または商用利用の場合は、チャージしてください）
-
-```
-JINA_API_KEY=Your_API_KEY
-```
 
 #### 4. その他のオプション設定
 

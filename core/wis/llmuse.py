@@ -27,6 +27,9 @@ def perform_completion_with_backoff(messages: List, model: str = '', **kwargs):
             response = client.chat.completions.create(
                 messages=messages,
                 model=model,
+                extra_headers={
+                    "APP-Code":"wiseflow"
+                },
                 **kwargs
             )
             return response

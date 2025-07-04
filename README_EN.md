@@ -10,7 +10,21 @@ What we lack is not information, but the ability to filter out noise from massiv
 
 https://github.com/user-attachments/assets/48998353-6c6c-4f8f-acae-dc5c45e2e0e6
 
-## 🔥🔥🔥 Wiseflow 4.1 Version Officially Released!
+## 🔥🔥🔥 10% Off OpenAI Model Series!
+
+Starting now, Wiseflow partners with AiHubMix to offer a 10% discount off official prices when using this branch code to run Wiseflow with OpenAI series models!
+
+o3-mini discounted price (after discount): Input ~~$1.1/M tokens~~ $0.99/M tokens, Output ~~$4.5/M tokens~~ $4.05/M tokens (supports official cache hits)
+
+gpt-4o-mini discounted price (after discount): Input ~~$0.15/M tokens~~ $0.135/M tokens, Output ~~$0.6/M tokens~~ $0.54/M tokens (supports official cache hits)
+
+Real testing of 68 pages consumed only (o3-mini + gpt-4o-mini) $1.22
+
+To enable, simply create a .env file based on [env_sample](env_sample), then configure the LLM API Key in .env to your AiHubMix API Key.
+
+[AiHubMix Registration](https://aihubmix.com?aff=Gp54)
+
+## Wiseflow 4.1 Version Officially Released!
 
 Version 4.1 brings many exciting new features on top of version 4.0!
 
@@ -88,10 +102,10 @@ In the wiseflow folder (project root directory), create a .env file based on env
 
 Version 4.x does not require users to provide pocketbase credentials in .env, nor does it restrict pocketbase version. Additionally, we have temporarily removed the Secondary Model setting. Therefore, you only need a minimum of four parameters to complete the configuration:
 
-- LLM_API_KEY="" # LLM service key (any model provider offering OpenAI format API, not required if using ollama locally)
-- LLM_API_BASE="" # LLM service base url (if any. For OpenAI users, leave it blank)
-- PRIMARY_MODEL=Qwen/Qwen3-14B # Recommended Qwen3-14B or equivalent thinking model
-- VL_MODEL=Pro/Qwen/Qwen2.5-VL-7B-Instruct # better to have
+- LLM_API_KEY="" # LLM service key (any model provider offering OpenAI format API, we recommend using AiHubMix service. Enjoy 10% discount on all openai models in wiseflow app [Application](https://aihubmix.com?aff=Gp54))
+- LLM_API_BASE=https://aihubmix.com/v1
+- PRIMARY_MODEL=o3-mini # Recommended o3-mini or higher-level thinking model
+- VL_MODEL=gpt-4o-mini # Recommended gpt-4o-mini or higher-level vision model
 
 ### 🚀 Take Off!
 
@@ -152,4 +166,4 @@ Licensed under Apache2.0
 
 ## Friendly Links
 
-[<img src="docs/logos/SiliconFlow.png" alt="siliconflow" width="360">](https://siliconflow.com/)
+[<img src="docs/logos/SiliconFlow.png" alt="siliconflow" width="240">](https://aihubmix.com?aff=Gp54)

@@ -82,10 +82,10 @@ git clone https://github.com/TeamWiseFlow/wiseflow.git
 
 4.x 版本无需用户在.env 中提供 pocketbase 的账密，也不限定 pocketbase 的版本, 同时我们也暂时取消了 Secondary Model 的设定, 因此你其实最少仅需四个参数即可完成配置：
 
-- LLM_API_KEY="" # LLM 服务的 key （任何提供 OpenAI 格式 API 的模型服务商均可，本地使用 ollama 部署则无需设置）
-- LLM_API_BASE="" # LLM 服务接口地址（中国大陆地区用户推荐使用siliconflow，其他地区用户请留空）
-- PRIMARY_MODEL="Qwen/Qwen3-14B" # 推荐 Qwen3-14B 或同量级思考模型
-- VL_MODEL="Pro/Qwen/Qwen2.5-VL-7B-Instruct" # 视觉模型，可选但最好有。用于分析必要的页面图片（程序会根据上下判定是否有必要分析，不会每张图都提取一次），最低使用Qwen2.5-VL-7B-Instruct即可
+- LLM_API_KEY="" # LLM 服务的 key （任何提供 OpenAI 格式 API 的模型服务商均可，推荐使用 AiHubMix 提供的服务，wiseflow 应用内使用 openai 全系模型享受9折优惠 [申请地址](https://aihubmix.com?aff=Gp54)）
+- LLM_API_BASE=https://aihubmix.com/v1
+- PRIMARY_MODEL=o3-mini # 推荐 o3-mini 或更高量级思考模型
+- VL_MODEL=gpt-4o-mini # 推荐 gpt-4o-mini 或更高量级视觉模型
 
 ### 🚀  起飞！
 
@@ -186,34 +186,15 @@ wiseflow 是 LLM 原生应用，请务必保证为程序提供稳定的 LLM 服�
 
 🌟 **wiseflow 并不限定模型服务提供来源，只要服务兼容 openAI SDK 即可，包括本地部署的 ollama、Xinference 等服务**
 
-##### 推荐1：使用硅基流动（siliconflow）提供的 MaaS 服务
-
-siliconflow（硅基流动）提供大部分主流开源模型的在线 MaaS 服务，凭借着自身的加速推理技术积累，其服务速度和价格方面都有很大优势。使用 siliconflow 的服务时，.env的配置可以参考如下：
+推荐：使用 AiHubMix 代理的 openai 模型服务, 现阶段 wiseflow 与 aihubmix 合作，wiseflow 应用内使用 openai 全系模型享受9折优惠 [申请地址](https://aihubmix.com?aff=Gp54)
 
 ```
 LLM_API_KEY=Your_API_KEY
-LLM_API_BASE="https://api.siliconflow.cn/v1"
-PRIMARY_MODEL=Qwen/Qwen3-14B
-VL_MODEL="Pro/Qwen/Qwen2.5-VL-7B-Instruct"
+LLM_API_BASE=https://aihubmix.com/v1
+PRIMARY_MODEL=o3-mini
+VL_MODEL=gpt-4o-mini
 CONCURRENT_NUMBER=8
 ```
-      
-😄 如果您愿意，可以使用我的[siliconflow邀请链接](https://cloud.siliconflow.cn/i/WNLYbBpi)，这样我也可以获得更多token奖励 🌹
-
-##### 推荐2：使用 AiHubMix 代理的openai、claude、gemini 等海外闭源商业模型服务
-
-如果您的信源多为非中文页面，且也不要求提取出的 info 为中文，那么更推荐您使用 openai、claude、gemini 等海外闭源商业模型。您可以尝试第三方代理 **AiHubMix**，支持国内网络环境直连、支付宝便捷支付，免去封号风险。
-使用 AiHubMix 的模型时，.env的配置可以参考如下：
-
-```
-LLM_API_KEY=Your_API_KEY
-LLM_API_BASE="https://aihubmix.com/v1" # 具体参考 https://doc.aihubmix.com/
-PRIMARY_MODEL="gpt-4o-mini"
-VL_MODEL="gpt-4o"
-CONCURRENT_NUMBER=8
-```
-
-😄 欢迎使用 [AiHubMix邀请链接](https://aihubmix.com?aff=Gp54) 注册 🌹
 
 ##### 本地部署大模型服务
 
@@ -225,14 +206,6 @@ LLM_API_BASE='http://127.0.0.1:9997' # 'http://127.0.0.1:11434/v1' for ollama
 PRIMARY_MODEL=启动的模型 ID
 VL_MODEL=启动的模型 ID
 CONCURRENT_NUMBER=1 # 根据实际硬件资源决定
-```
-
-#### 3. JINA_API_KEY 设置（用于搜索引擎服务）
-
-至 https://jina.ai/ 领取，目前无需注册即可领取。（如有高并发或商用需求，请充值后使用）
-
-```
-JINA_API_KEY=Your_API_KEY
 ```
 
 #### 4. 其他可选配置

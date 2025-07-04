@@ -84,10 +84,10 @@ Dans le dossier wiseflow (répertoire racine du projet), créez un fichier .env 
 
 La version 4.x ne nécessite pas d'identifiants PocketBase dans le fichier .env et ne limite pas non plus la version de PocketBase. De plus, nous avons temporairement supprimé le paramètre Secondary Model. Vous n'avez donc besoin que de quatre paramètres minimum :
 
-- LLM_API_KEY="" # Clé de service LLM (tout fournisseur avec un format d'API compatible OpenAI est approprié, non requis pour l'utilisation locale d'ollama)
-- LLM_API_BASE="" # Adresse de l'interface du service LLM (si nécessaire. Pour les utilisateurs OpenAI, laissez-le vide)
-- PRIMARY_MODEL=Qwen/Qwen3-14B # Recommandé Qwen3-14B ou un modèle de réflexion de niveau équivalent
-- VL_MODEL="Pro/Qwen/Qwen2.5-VL-7B-Instruct" # Modèle visuel, optionnel mais recommandé. Utilisé pour analyser les images de page nécessaires (le programme décide en fonction du contexte si une analyse est nécessaire, pas chaque image n'est extraite), minimum Qwen2.5-VL-7B-Instruct requis
+- LLM_API_KEY="" # Clé de service LLM (tout fournisseur avec un format d'API compatible OpenAI est approprié, recommandé d'utiliser le service AiHubMix, les utilisateurs wiseflow bénéficient d'une remise de 10% sur les modèles OpenAI [postuler ici](https://aihubmix.com?aff=Gp54))
+- LLM_API_BASE=https://aihubmix.com/v1
+- PRIMARY_MODEL=o3-mini # Recommandé o3-mini ou modèle de réflexion de niveau supérieur
+- VL_MODEL=gpt-4o-mini # Recommandé gpt-4o-mini ou modèle visuel de niveau supérieur
 
 ### 🚀  C'est parti !
 
@@ -187,34 +187,15 @@ wiseflow est une application native LLM. Veuillez vous assurer de fournir un ser
 
 🌟 **wiseflow ne limite pas les fournisseurs de services de modèles, tant que le service est compatible avec le SDK OpenAI, y compris les services déployés localement comme ollama, Xinference, etc.**
 
-##### Recommandation 1 : Utilisation du service MaaS de SiliconFlow
-
-SiliconFlow propose des services MaaS pour la plupart des modèles open source courants. Grâce à leur propre technologie d'accélération d'inférence, ils ont de grands avantages en termes de vitesse et de prix. Lors de l'utilisation du service SiliconFlow, la configuration .env peut ressembler à ceci :
+Recommandé : Utilisez le service de modèles OpenAI proxifiés par AiHubMix. Actuellement, WiseFlow collabore avec AiHubMix, et les utilisateurs WiseFlow bénéficient d'une remise de 10% sur tous les modèles OpenAI [Postuler ici](https://aihubmix.com?aff=Gp54)
 
 ```
 LLM_API_KEY=Votre_clé_API
-LLM_API_BASE="" # Adresse de l'interface du service LLM (si nécessaire. Pour les utilisateurs OpenAI, laissez-le vide)
-PRIMARY_MODEL=Qwen/Qwen3-14B # Recommandé Qwen3-14B ou un modèle de réflexion de niveau équivalent
-VL_MODEL="Pro/Qwen/Qwen2.5-VL-7B-Instruct"
+LLM_API_BASE=https://aihubmix.com/v1
+PRIMARY_MODEL=o3-mini
+VL_MODEL=gpt-4o-mini
 CONCURRENT_NUMBER=8
 ```
-      
-😄 Si vous le souhaitez, vous pouvez utiliser mon [lien d'invitation SiliconFlow](https://cloud.siliconflow.com/i/WNLYbBpi) pour que je puisse obtenir plus de récompenses de tokens 🌹
-
-##### Recommandation 2 : Utilisation d'AiHubMix comme proxy pour OpenAI, Claude, Gemini et autres modèles commerciaux
-
-Si vos sources d'information sont principalement des pages non chinoises et que vous ne demandez pas non plus que les informations extraites soient en chinois, nous recommandons d'utiliser OpenAI, Claude, Gemini et d'autres modèles commerciaux. Vous pouvez essayer le proxy tiers **AiHubMix**, qui prend en charge les connexions directes dans les réseaux chinois, les paiements pratiques via Alipay et évite le risque de blocage de compte.
-Lors de l'utilisation des modèles AiHubMix, la configuration .env peut ressembler à ceci :
-
-```
-LLM_API_KEY=Votre_clé_API
-LLM_API_BASE="https://aihubmix.com/v1" # voir https://doc.aihubmix.com/
-PRIMARY_MODEL="gpt-4o-mini"
-VL_MODEL="gpt-4o"
-CONCURRENT_NUMBER=8
-```
-
-😄 Bienvenue pour vous inscrire via le [lien d'invitation AiHubMix](https://aihubmix.com?aff=Gp54) 🌹
 
 ##### Déploiement local du service LLM
 
@@ -226,14 +207,6 @@ LLM_API_BASE='http://127.0.0.1:9997' # 'http://127.0.0.1:11434/v1' pour ollama
 PRIMARY_MODEL=ID_du_modèle_démarré
 VL_MODEL=ID_du_modèle_démarré
 CONCURRENT_NUMBER=1 # basé sur les ressources matérielles réelles
-```
-
-#### 3. Configuration de JINA_API_KEY (pour le service de moteur de recherche)
-
-Disponible sur https://jina.ai/, actuellement disponible sans inscription. (Pour une utilisation à haut débit ou commerciale, veuillez utiliser après recharge)
-
-```
-JINA_API_KEY=Votre_clé_API
 ```
 
 #### 4. Autres configurations optionnelles

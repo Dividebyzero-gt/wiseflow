@@ -10,7 +10,21 @@ Was uns fehlt, ist nicht Information, sondern die Fähigkeit, Rauschen aus massi
 
 https://github.com/user-attachments/assets/48998353-6c6c-4f8f-acae-dc5c45e2e0e6
 
-## 🔥🔥🔥 Wiseflow 4.1 Version offiziell veröffentlicht!
+## 🔥🔥🔥 10% Rabatt auf OpenAI Modellserie!
+
+Ab sofort arbeitet Wiseflow mit AiHubMix zusammen - verwenden Sie diesen Branch-Code, um Wiseflow auszuführen und OpenAI-Serienmodelle zu konfigurieren, und genießen Sie 10% Rabatt auf die offiziellen Preise!
+
+o3-mini Rabattpreis: Eingabe ~~$1.1/M tokens~~ $0.99/M tokens, Ausgabe ~~$4.5/M tokens~~ $4.05/M tokens (unterstützt offizielle Cache-Treffer)
+
+gpt-4o-mini Rabattpreis: Eingabe ~~$0.15/M tokens~~ $0.135/M tokens, Ausgabe ~~$0.6/M tokens~~ $0.54/M tokens (unterstützt offizielle Cache-Treffer)
+
+Tatsächlicher Test mit 68 Seiten verbrauchte nur (o3-mini + gpt-4o-mini) $1.22
+
+Zur Aktivierung erstellen Sie einfach eine .env-Datei basierend auf [env_sample](env_sample) und konfigurieren Sie den LLM API Key in .env auf Ihren AiHubMix API Key.
+
+[AiHubMix Registrierung](https://aihubmix.com?aff=Gp54)
+
+## Wiseflow 4.1 Version offiziell veröffentlicht!
 
 Version 4.1 bringt viele aufregende neue Funktionen auf Basis von Version 4.0!
 
@@ -88,10 +102,10 @@ Im wiseflow-Ordner (Projektstammverzeichnis) erstellen Sie eine .env-Datei basie
 
 Die Version 4.x erfordert keine pocketbase-Anmeldedaten in der .env-Datei und hat keine Versionsbeschränkungen für pocketbase. Außerdem haben wir vorübergehend die Secondary Model-Einstellung entfernt. Daher benötigen Sie nur vier Parameter für die Konfiguration:
 
-- LLM_API_KEY="" # Schlüssel für den LLM-Dienst (jeder Modellanbieter mit OpenAI-Format-API, nicht erforderlich bei lokaler ollama-Installation)
-- LLM_API_BASE="" # LLM-Dienstschnittstellenadresse (falls erforderlich. Für OpenAI-Benutzer, lassen Sie es leer)
-- PRIMARY_MODEL="Qwen/Qwen3-14B" # Qwen3-14B oder ein gleichwertiges Denkmodell empfohlen
-- VL_MODEL="Pro/Qwen/Qwen2.5-VL-7B-Instruct" # besser zu haben
+- LLM_API_KEY="" # LLM-Dienstschlüssel (jeder Modellanbieter mit OpenAI-Format-API, wir empfehlen die Nutzung des AIHubMix-Dienstes, Wiseflow nutzt OpenAI-Modelle in der Anwendung und bietet 10% Rabatt [Antragsadresse](https://aihubmix.com?aff=Gp54))
+- LLM_API_BASE=https://aihubmix.com/v1
+- PRIMARY_MODEL=o3-mini # Empfohlenes o3-mini oder höherstufiges Denkmodell
+- VL_MODEL=gpt-4o-mini # Empfohlenes gpt-4o-mini oder höherstufiges Sichtmodell
 
 ### 🚀 Starten!
 
@@ -152,4 +166,4 @@ Lizenziert unter Apache2.0
 
 ## Freundliche Links
 
-[<img src="docs/logos/SiliconFlow.png" alt="siliconflow" width="360">](https://siliconflow.com/)
+[<img src="docs/logos/SiliconFlow.png" alt="siliconflow" width="240">](https://aihubmix.com?aff=Gp54)

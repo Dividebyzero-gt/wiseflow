@@ -25,7 +25,7 @@ def extract_info_from_img(url: str) -> str:
     try:
         llm_output = llm([{"role": "user",
             "content": [{"type": "image_url", "image_url": {"url": url, "detail": "high"}},
-            {"type": "text", "text": "提取图片中的所有文字，如果图片不包含文字或者文字很少或者你判断图片仅是网站logo、商标、图标等，则输出NA。注意请仅输出提取出的文字，不要输出别的任何内容。"}]}],
+            {"type": "text", "text": "Extract all text from the image. If the image contains no text, very little text, or you determine it's just a website logo, trademark, icon, etc., then output NA. Please only output the extracted text, do not output any other content."}]}],
             model=vl_model)
         return llm_output.choices[0].message.content
     except Exception as e:

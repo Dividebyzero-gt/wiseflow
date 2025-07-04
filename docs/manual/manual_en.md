@@ -82,10 +82,10 @@ In the wiseflow folder (project root directory), create a .env file based on env
 
 Version 4.x does not require users to provide PocketBase account credentials in .env, nor does it limit the PocketBase version. We have also temporarily removed the Secondary Model setting. Therefore, you actually only need four parameters to complete the configuration:
 
-- LLM_API_KEY="" # LLM service key (any model service provider that provides OpenAI format API is acceptable, no need to set if using locally deployed ollama)
-- LLM_API_BASE="" # LLM service base url (if any. For OpenAI users, leave it blank)
-- PRIMARY_MODEL=Qwen/Qwen3-14B # Recommended Qwen3-14B or equivalent thinking model
-- VL_MODEL="Pro/Qwen/Qwen2.5-VL-7B-Instruct" # Visual model, optional but recommended. Used for analyzing necessary page images (program will determine if analysis is necessary based on context, won't extract every image), minimum Qwen2.5-VL-7B-Instruct is sufficient
+- LLM_API_KEY="" # LLM service key (any model service provider that provides OpenAI format API is acceptable, recommended to use AiHubMix service, wiseflow users enjoy 10% discount on OpenAI models [apply here](https://aihubmix.com?aff=Gp54))
+- LLM_API_BASE=https://aihubmix.com/v1
+- PRIMARY_MODEL=o3-mini # Recommended o3-mini or higher level thinking model
+- VL_MODEL=gpt-4o-mini # Recommended gpt-4o-mini or higher level visual model
 
 ### 🚀 Let's Go!
 
@@ -185,34 +185,15 @@ WiseFlow is an LLM-native application, please ensure stable LLM service is provi
 
 🌟 **WiseFlow does not limit the model service provider, as long as the service is compatible with OpenAI SDK, including locally deployed ollama, Xinference, and other services**
 
-##### Recommendation 1: Use SiliconFlow's MaaS Service
-
-SiliconFlow provides online MaaS services for most mainstream open-source models. With their acceleration inference technology, their service has advantages in both speed and price. When using SiliconFlow's service, .env configuration can refer to:
+Recommended: Use AiHubMix's proxied OpenAI model service. Currently, WiseFlow collaborates with AiHubMix, and WiseFlow users enjoy a 10% discount on all OpenAI models [Apply here](https://aihubmix.com?aff=Gp54)
 
 ```
 LLM_API_KEY=Your_API_KEY
-LLM_API_BASE="" # LLM service base url (if any. For OpenAI users, leave it blank)
-PRIMARY_MODEL="Qwen/Qwen3-14B"
-VL_MODEL="Pro/Qwen/Qwen2.5-VL-7B-Instruct"
+LLM_API_BASE=https://aihubmix.com/v1
+PRIMARY_MODEL=o3-mini
+VL_MODEL=gpt-4o-mini
 CONCURRENT_NUMBER=8
 ```
-
-😄 If you'd like, you can use my [SiliconFlow invitation link](https://cloud.siliconflow.com/i/WNLYbBpi), so I can get more token rewards 🌹
-
-##### Recommendation 2: Use AiHubMix's proxied overseas closed-source commercial model services like OpenAI, Claude, Gemini
-
-If your information sources are mostly non-Chinese pages and you don't require the extracted info to be in Chinese, then overseas closed-source commercial models like OpenAI, Claude, Gemini are more recommended. You can try third-party proxy **AiHubMix**, which supports direct connection in Chinese network environment, convenient Alipay payment, and eliminates account blocking risks.
-When using AiHubMix's models, .env configuration can refer to:
-
-```
-LLM_API_KEY=Your_API_KEY
-LLM_API_BASE="https://aihubmix.com/v1" # For details, refer to https://doc.aihubmix.com/
-PRIMARY_MODEL="gpt-4o-mini"
-VL_MODEL="gpt-4o"
-CONCURRENT_NUMBER=8
-```
-
-😄 Welcome to register using [AiHubMix invitation link](https://aihubmix.com?aff=Gp54) 🌹
 
 ##### Local LLM Service Deployment
 
@@ -224,14 +205,6 @@ LLM_API_BASE='http://127.0.0.1:9997' # 'http://127.0.0.1:11434/v1' for ollama
 PRIMARY_MODEL=Started model ID
 VL_MODEL=Started model ID
 CONCURRENT_NUMBER=1 # Determine based on actual hardware resources
-```
-
-#### 3. JINA_API_KEY Setting (for Search Engine Service)
-
-Get it at https://jina.ai/, currently available without registration. (Please recharge for high concurrency or commercial use)
-
-```
-JINA_API_KEY=Your_API_KEY
 ```
 
 #### 4. Other Optional Configurations

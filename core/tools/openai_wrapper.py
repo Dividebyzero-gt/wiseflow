@@ -50,6 +50,9 @@ async def openai_llm(messages: List, model: str, logger=None, **kwargs) -> str:
                 response = await client.chat.completions.create(
                     messages=messages,
                     model=model,
+                    extra_headers={
+                        "APP-Code":"wiseflow"
+                    },
                     **kwargs
                 )
                 

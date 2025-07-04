@@ -10,7 +10,21 @@
 
 https://github.com/user-attachments/assets/48998353-6c6c-4f8f-acae-dc5c45e2e0e6
 
-## 🔥🔥🔥 Wiseflow 4.1 バージョンが正式にリリースされました！
+## 🔥🔥🔥 OpenAI全シリーズモデル10%割引！
+
+本日より、WiseflowとAiHubMixが提携し、本ブランチのコードを使用してWiseflowを実行し、OpenAIシリーズモデルを設定すると、公式価格の10%割引が受けられます！
+
+o3-mini 割引後価格：入力 ~~$1.1/M tokens~~ $0.99/M tokens、出力 ~~$4.5/M tokens~~ $4.05/M tokens（公式キャッシュヒット対応）
+
+gpt-4o-mini 割引後価格：入力 ~~$0.15/M tokens~~ $0.135/M tokens、出力 ~~$0.6/M tokens~~ $0.54/M tokens（公式キャッシュヒット対応）
+
+実際のテストで68ページを処理し、（o3-mini + gpt-4o-mini）わずか$1.22の消費
+
+有効にするには、[env_sample](env_sample)を参考に.envファイルを作成し、.env内のLLM API KeyをAiHubMixのAPI Keyに設定するだけです。
+
+[AiHubMix登録サイト](https://aihubmix.com?aff=Gp54)
+
+## Wiseflow 4.1 バージョンが正式にリリースされました！
 
 バージョン4.1では、バージョン4.0を基盤として、さらに多くのエキサイティングな新機能が追加されました！
 
@@ -88,10 +102,10 @@ wiseflowフォルダ（プロジェクトのルートディレクトリ）でenv
 
 4.x バージョンでは、ユーザーが .env ファイルに pocketbase の認証情報を提供する必要がなく、pocketbase のバージョンにも制限がなくなりました。また、セカンダリモデルの設定も一時的に削除されたため、実質的に最小限の4つのパラメーターで設定を完了できます：
 
-- LLM_API_KEY="" # LLM サービスのキー (すべての OpenAI 形式 API を提供するモデル サービスを使用できます。ローカルで ollama を使用してデプロイする場合は設定する必要はありません)
-- LLM_API_BASE="" # LLM サービスのベースURL (ある場合。OpenAIユーザーの場合は空白のままにしてください)
-- PRIMARY_MODEL=Qwen/Qwen3-14B # 推奨 Qwen3-14B または同等の思考モデル
-- VL_MODEL=Pro/Qwen/Qwen2.5-VL-7B-Instruct # あったほうが良い
+- LLM_API_KEY="" # LLM サービスのキー (OpenAI 形式 API を提供するモデル サービス プロバイダーを使用できます。WiseflowアプリですべてのOpenAIモデルを10％割引でお楽しみください[申請](https://aihubmix.com?aff=Gp54))
+- LLM_API_BASE=https://aihubmix.com/v1
+- PRIMARY_MODEL=o3-mini # 推奨 o3-mini または上位レベルの思考モデル
+- VL_MODEL=gpt-4o-mini # 推奨 gpt-4o-mini または上位レベルの視覚モデル
 
 ### 🚀 起動！
 
@@ -152,4 +166,4 @@ Apache2.0ライセンス
 
 ## 友好リンク
 
-[<img src="docs/logos/SiliconFlow.png" alt="siliconflow" width="360">](https://siliconflow.com/)
+[<img src="docs/logos/SiliconFlow.png" alt="siliconflow" width="240">](https://aihubmix.com?aff=Gp54)

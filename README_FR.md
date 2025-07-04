@@ -10,7 +10,21 @@ Ce qui nous manque, ce n'est pas l'information, mais la capacité à filtrer le 
 
 https://github.com/user-attachments/assets/48998353-6c6c-4f8f-acae-dc5c45e2e0e6
 
-## 🔥🔥🔥 Lancement officiel de la version 4.1 de Wiseflow !
+## 🔥🔥🔥 10% de réduction sur toute la série de modèles OpenAI !
+
+Dès maintenant, Wiseflow s'associe avec AiHubMix pour offrir une réduction de 10% sur les prix officiels lorsque vous utilisez ce code de branche pour exécuter Wiseflow avec les modèles de la série OpenAI !
+
+Prix réduit o3-mini : Entrée ~~$1.1/M tokens~~ $0.99/M tokens, Sortie ~~$4.5/M tokens~~ $4.05/M tokens (prend en charge les hits de cache officiels)
+
+Prix réduit gpt-4o-mini : Entrée ~~$0.15/M tokens~~ $0.135/M tokens, Sortie ~~$0.6/M tokens~~ $0.54/M tokens (prend en charge les hits de cache officiels)
+
+Test réel de traitement de 68 pages, consommation de seulement (o3-mini + gpt-4o-mini) $1.22
+
+Pour l'activer, créez simplement un fichier .env basé sur [env_sample](env_sample), puis configurez la clé API LLM dans .env avec votre clé API AiHubMix.
+
+[Adresse d'inscription AiHubMix](https://aihubmix.com?aff=Gp54)
+
+## Lancement officiel de la version 4.1 de Wiseflow !
 
 La version 4.1 apporte de nombreuses nouvelles fonctionnalités intéressantes par rapport à la version 4.0 !
 
@@ -88,10 +102,10 @@ Dans le dossier wiseflow (répertoire racine du projet), créez un fichier .env 
 
 La version 4.x ne nécessite pas que l'utilisateur fournisse les identifiants pocketbase dans .env, ni ne limite la version de pocketbase. De plus, nous avons temporairement supprimé le paramètre Secondary Model. Par conséquent, vous n'avez besoin que de quatre paramètres minimum pour compléter la configuration :
 
-- LLM_API_KEY="" # Clé du service LLM (tout fournisseur de modèle offrant une API au format OpenAI, pas nécessaire si vous utilisez ollama en local)
-- LLM_API_BASE="" # Adresse de l'interface du service LLM (si nécessaire. Pour les utilisateurs OpenAI, laissez-le vide)
-- PRIMARY_MODEL=Qwen/Qwen3-14B # Recommandé Qwen3-14B ou un modèle de réflexion de niveau équivalent
-- VL_MODEL=Pro/Qwen/Qwen2.5-VL-7B-Instruct # préférable
+- LLM_API_KEY="" # Clé du service LLM (tout fournisseur de modèle offrant une API au format OpenAI, nous recommandons l'utilisation du service AiHubMix, Bénéficiez de 10 % de réduction sur tous les modèles OpenAI dans l'application Wiseflow [Adresse de l'application](https://aihubmix.com?aff=Gp54))
+- LLM_API_BASE=https://aihubmix.com/v1
+- PRIMARY_MODEL=o3-mini # Recommandé o3-mini ou modèle de réflexion de niveau supérieur
+- VL_MODEL=gpt-4o-mini # Recommandé gpt-4o-mini ou modèle de vision de niveau supérieur
 
 ### 🚀 Décollage !
 
@@ -152,4 +166,4 @@ Sous licence Apache2.0
 
 ## Liens Amicaux
 
-[<img src="docs/logos/SiliconFlow.png" alt="siliconflow" width="360">](https://siliconflow.com/)
+[<img src="docs/logos/SiliconFlow.png" alt="siliconflow" width="240">](https://aihubmix.com?aff=Gp54)

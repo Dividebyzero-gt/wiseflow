@@ -10,7 +10,23 @@
 
 https://github.com/user-attachments/assets/48998353-6c6c-4f8f-acae-dc5c45e2e0e6
 
-## 🔥🔥🔥 Wiseflow 4.1 版本正式发布！
+## 🔥🔥🔥 9折优惠使用 OpenAI 全系列模型！
+
+即日起，wiseflow 与 AiHubMix 合作，使用本分支代码运行 wiseflow，并配置 openai 系列模型，可享官方价格的九折！
+
+o3-mini 折后价（优惠后）：输入 ~~$1.1/M tokens~~ 0.99/M tokens, 输出 ~~$4.5/M tokens~~ 4.05/M tokens （支持官方缓存命中）
+
+gpt-4o-mini 折后价（优惠后）：输入 ~~$0.15/M tokens~~ 0.135/M tokens, 输出 ~~$0.6/M tokens~~ 0.54/M tokens （支持官方缓存命中）
+
+实际测试处理68个页面，仅消耗（o3-mini + gpt-4o-mini） $1.22 
+
+启用仅需参考 [env_sample](env_sample) 创建 .env 文件，然后配置 .env 中的 LLM API Key 为 AiHubMix 的 API Key 即可。
+
+[AiHubMix注册地址](https://aihubmix.com?aff=Gp54)
+
+**注意：** 使用中请使用外网链路连接 AiHubMix 的 API，否则可能出现 api 超时问题。
+
+## Wiseflow 4.1 版本正式发布！
 
 4.1版本在4.0版本基础上又带来了诸多激动人心的新功能！
 
@@ -84,10 +100,10 @@ git clone https://github.com/TeamWiseFlow/wiseflow.git
 
 4.x 版本无需用户在.env 中提供 pocketbase 的账密，也不限定 pocketbase 的版本, 同时我们也暂时取消了 Secondary Model 的设定, 因此你其实最少仅需四个参数即可完成配置：
 
-- LLM_API_KEY="" # LLM 服务的 key （任何提供 OpenAI 格式 API 的模型服务商均可，本地使用 ollama 部署则无需设置）
-- LLM_API_BASE="https://api.siliconflow.cn/v1" # LLM 服务接口地址（中国大陆地区用户推荐使用siliconflow）
-- PRIMARY_MODEL=Qwen/Qwen3-14B # 推荐 Qwen3-14B 或同量级思考模型
-- VL_MODEL=Pro/Qwen/Qwen2.5-VL-7B-Instruct # better to have
+- LLM_API_KEY="" # LLM 服务的 key （任何提供 OpenAI 格式 API 的模型服务商均可，推荐使用 AiHubMix 提供的服务，wiseflow 应用内使用 openai 全系模型享受9折优惠 [申请地址](https://aihubmix.com?aff=Gp54)）
+- LLM_API_BASE=https://aihubmix.com/v1
+- PRIMARY_MODEL=o3-mini # 推荐 o3-mini 或更高量级思考模型
+- VL_MODEL=gpt-4o-mini # 推荐 gpt-4o-mini 或更高量级视觉模型
 
 ### 🚀  起飞！
 
@@ -149,4 +165,4 @@ Licensed under Apache2.0
 
 ## 友情链接
 
-[<img src="docs/logos/SiliconFlow.png" alt="siliconflow" width="360">](https://siliconflow.com/)
+[<img src="docs/logos/SiliconFlow.png" alt="siliconflow" width="240">](https://aihubmix.com?aff=Gp54)

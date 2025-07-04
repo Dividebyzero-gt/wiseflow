@@ -10,7 +10,21 @@
 
 https://github.com/user-attachments/assets/48998353-6c6c-4f8f-acae-dc5c45e2e0e6
 
-## 🔥🔥🔥 Wiseflow 4.1 버전 정식 출시!
+## 🔥🔥🔥 OpenAI 전체 모델 시리즈 10% 할인!
+
+지금부터 Wiseflow와 AiHubMix가 협력하여 이 브랜치 코드를 사용해 Wiseflow를 실행하고 OpenAI 시리즈 모델을 구성하면 공식 가격의 10% 할인을 받을 수 있습니다!
+
+o3-mini 할인 가격: 입력 ~~$1.1/M tokens~~ $0.99/M tokens, 출력 ~~$4.5/M tokens~~ $4.05/M tokens (공식 캐시 히트 지원)
+
+gpt-4o-mini 할인 가격: 입력 ~~$0.15/M tokens~~ $0.135/M tokens, 출력 ~~$0.6/M tokens~~ $0.54/M tokens (공식 캐시 히트 지원)
+
+실제 테스트에서 68개 페이지 처리 시 (o3-mini + gpt-4o-mini) 단 $1.22만 소모
+
+활성화하려면 [env_sample](env_sample)을 참조하여 .env 파일을 생성한 후, .env의 LLM API Key를 AiHubMix API Key로 설정하면 됩니다.
+
+[AiHubMix 등록 주소](https://aihubmix.com?aff=Gp54)
+
+## Wiseflow 4.1 버전 정식 출시!
 
 4.1 버전은 4.0 버전을 기반으로 여러 가지 흥미로운 새로운 기능을 제공합니다!
 
@@ -88,10 +102,10 @@ wiseflow 폴더(프로젝트 루트 디렉토리)에서 env_sample을 참조하�
 
 4.x 버전에서는 사용자가 .env 파일에 pocketbase 계정 정보를 제공할 필요가 없으며, pocketbase 버전에 대한 제한도 없습니다. 또한 보조 모델 설정도 임시로 제거되었으므로, 사실상 최소 4개의 매개변수만으로 설정을 완료할 수 있습니다:
 
-- LLM_API_KEY="" # LLM 서비스의 키 (모든 OpenAI 형식 API를 제공하는 모델 서비스를 사용할 수 있으며, 로컬에서 ollama를 사용하여 배포하는 경우 설정할 필요가 없음)
-- LLM_API_BASE="" # LLM 서비스 기본 URL (있는 경우. OpenAI 사용자의 경우 비워두세요)
-- PRIMARY_MODEL=Qwen/Qwen3-14B # 추천 Qwen3-14B 또는 동일 수준의 사고 모델
-- VL_MODEL=Pro/Qwen/Qwen2.5-VL-7B-Instruct # 가지고 있는 것이 좋음
+- LLM_API_KEY="" # LLM 서비스 키 (OpenAI 형식 API를 제공하는 모든 모델 서비스 제공업체를 사용할 수 있으며, wiseflow 앱 내에서 openai 전체 모델을 사용하여 9할 할인 혜택을 누리세요 [신청 주소](https://aihubmix.com?aff=Gp54))
+- LLM_API_BASE=https://aihubmix.com/v1
+- PRIMARY_MODEL=o3-mini # 권장 o3-mini 또는 더 높은 수준의 사고 모델
+- VL_MODEL=gpt-4o-mini # 권장 gpt-4o-mini 또는 더 높은 수준의 비전 모델
 
 ### 🚀 시작!
 
@@ -152,4 +166,4 @@ Apache2.0 라이선스
 
 ## 우호 링크
 
-[<img src="docs/logos/SiliconFlow.png" alt="siliconflow" width="360">](https://siliconflow.com/)
+[<img src="docs/logos/SiliconFlow.png" alt="siliconflow" width="240">](https://aihubmix.com?aff=Gp54)
